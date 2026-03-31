@@ -1,0 +1,19 @@
+{
+  "name": "@eidos/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@eidos/analytics": "file:../../packages/analytics",
+    "@eidos/shared-types": "file:../../packages/shared-types",
+    "@eidos/shared-ui": "file:../../packages/shared-ui",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

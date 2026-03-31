@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eidos-api"
+version = "0.1.0"
+description = "FastAPI foundation for the Eidos local-first backend"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "alembic>=1.16,<2.0",
+  "fastapi>=0.115,<1.0",
+  "pydantic>=2.10,<3.0",
+  "sqlalchemy>=2.0.40,<3.0",
+  "uvicorn>=0.34,<1.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28,<1.0",
+  "mypy>=1.15,<2.0",
+  "pytest>=8.3,<9.0",
+  "ruff>=0.11,<1.0"
+]
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+addopts = "--basetemp=./.pytest_tmp"
+cache_dir = "./.pytest_state"
+testpaths = ["tests"]
+
+[tool.ruff]
+exclude = [
+  ".mypy_cache",
+  ".pytest_cache",
+  ".pytest_state",
+  ".pytest_tmp",
+  ".ruff_cache",
+  ".venv",
+  "__pycache__",
+  "data"
+]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+packages = ["app"]

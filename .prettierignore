@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.venv
+apps/desktop/src-tauri/target

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Eidos",
+  "version": "0.1.0",
+  "identifier": "com.eidos.app",
+  "build": {
+    "beforeDevCommand": "npm run dev --workspace @eidos/desktop",
+    "beforeBuildCommand": "npm run build --workspace @eidos/desktop",
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Eidos",
+        "width": 1440,
+        "height": 960
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all"
+  }
+}

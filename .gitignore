@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.turbo/
+.vite/
+coverage/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+*.sqlite3
+*.db
+apps/desktop/src-tauri/target/
