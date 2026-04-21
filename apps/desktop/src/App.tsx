@@ -1,22 +1,6 @@
-import { summarizeConcentration } from "@eidos/analytics";
-import type { PortfolioSnapshot } from "@eidos/shared-types";
 import { Panel } from "@eidos/shared-ui";
 
-const demoSnapshot: PortfolioSnapshot = {
-  asOf: "2026-03-28T00:00:00Z",
-  baseCurrency: "USD",
-  positions: [
-    { symbol: "MSFT", quantity: 8, marketValue: 3400, assetClass: "equity" },
-    {
-      symbol: "VGIT",
-      quantity: 12,
-      marketValue: 2600,
-      assetClass: "fixed_income",
-    },
-  ],
-};
-
-const summary = summarizeConcentration(demoSnapshot);
+import { env } from "./config/env";
 
 export function App() {
   return (
@@ -62,25 +46,21 @@ export function App() {
 
           <Panel
             eyebrow="Validation"
-            title="Sample analytics contract"
-            description={`Largest holding weight: ${(summary.largestHoldingWeight * 100).toFixed(1)}%`}
+            title="Local development targets"
+            description="The UI is intentionally minimal while the shell, API, and persistence layers are verified."
           >
             <dl className="space-y-3 text-sm text-slate-700">
               <div className="flex items-center justify-between gap-4">
-                <dt>Total market value</dt>
-                <dd className="font-medium">
-                  ${summary.totalMarketValue.toLocaleString()}
-                </dd>
+                <dt>Frontend</dt>
+                <dd className="font-medium">Vite dev server</dd>
               </div>
               <div className="flex items-center justify-between gap-4">
-                <dt>Holdings</dt>
-                <dd className="font-medium">{summary.holdingCount}</dd>
+                <dt>Backend</dt>
+                <dd className="font-medium">{env.apiBaseUrl}</dd>
               </div>
               <div className="flex items-center justify-between gap-4">
-                <dt>As of</dt>
-                <dd className="font-medium">
-                  {demoSnapshot.asOf.slice(0, 10)}
-                </dd>
+                <dt>Storage</dt>
+                <dd className="font-medium">SQLite local file</dd>
               </div>
             </dl>
           </Panel>

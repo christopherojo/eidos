@@ -14,5 +14,6 @@ describe("App", () => {
     expect(
       screen.getByText(/shared logic: analytics and cross-surface types/i)
     ).toBeInTheDocument();
+    expect(screen.getByText("http://127.0.0.1:8000")).toBeInTheDocument();
   });
 });
